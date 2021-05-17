@@ -1,0 +1,23 @@
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var text, parser, xmlDoc;
+
+text = `<calendar><interview>
+<company>Nagwa</company>
+<interviewers>Mahmoud & Haytham</interviewers>
+<date>2021-05-17 11:00:00</date>
+</interview></calendar>`;
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text,"text/xml");
+
+document.getElementById("demo").innerHTML =
+`You Have an interview for ${xmlDoc.getElementsByTagName("company")[0].childNodes[0].nodeValue}`;
+</script>
+
+</body>
+</html>
